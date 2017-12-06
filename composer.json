@@ -1,0 +1,22 @@
+{
+  "name": "mfiyalka/kuna",
+  "description": "Kuna API",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mykhailo Fiialka",
+      "email": "mfiyalka@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Mfiyalka\\API\\Kuna\\": "src/API/Kuna/",
+      "Mfiyalka\\API\\Kuna\\Object\\": "src/API/Kuna/Object/"
+    }
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "guzzlehttp/guzzle": "~6.0"
+  }
+}
