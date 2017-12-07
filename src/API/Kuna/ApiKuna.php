@@ -52,8 +52,6 @@ class ApiKuna
 
         $oClass = new \ReflectionClass(Market::class);
         $this->tickers = array_values($oClass->getConstants());
-
-        $this->tonce = time() * 1000;
     }
 
     /**
@@ -118,6 +116,7 @@ class ApiKuna
      */
     public function getMe() : User
     {
+        $this->tonce = time() * 1000;
         $this->signature = hash_hmac(
             'sha256',
             "GET|/api/v2/members/me|access_key={$this->publicKey}&tonce={$this->tonce}",
@@ -150,6 +149,7 @@ class ApiKuna
         $market,
         $price
     ) : Order {
+        $this->tonce = time() * 1000;
         $this->signature = hash_hmac(
             'sha256',
             "POST|/api/v2/orders|access_key={$this->publicKey}&market={$market}&price={$price}&side={$side}&tonce={$this->tonce}&volume={$volume}",
@@ -179,6 +179,7 @@ class ApiKuna
      */
     public function deleteOrder(string $id) : Order
     {
+        $this->tonce = time() * 1000;
         $this->signature = hash_hmac(
             'sha256',
             "POST|/api/v2/order/delete|access_key={$this->publicKey}&id={$id}&tonce={$this->tonce}",
@@ -205,6 +206,7 @@ class ApiKuna
      */
     public function getMyOrders(string $market) : Orders
     {
+        $this->tonce = time() * 1000;
         $this->signature = hash_hmac(
             'sha256',
             "GET|/api/v2/orders|access_key={$this->publicKey}&market={$market}&tonce={$this->tonce}",
@@ -231,6 +233,7 @@ class ApiKuna
      */
     public function getMyTrades(string $market) : Trades
     {
+        $this->tonce = time() * 1000;
         $this->signature = hash_hmac(
             'sha256',
             "GET|/api/v2/trades/my|access_key={$this->publicKey}&market={$market}&tonce={$this->tonce}",

@@ -11,8 +11,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Mfiyalka\\API\\Kuna\\": "src/API/Kuna/",
-      "Mfiyalka\\API\\Kuna\\Object\\": "src/API/Kuna/Object/"
+      "Mfiyalka\\API\\Kuna\\": "src/"
     }
   },
   "minimum-stability": "stable",
